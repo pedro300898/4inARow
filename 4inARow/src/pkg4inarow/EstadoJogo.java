@@ -58,7 +58,8 @@ public class EstadoJogo {
     }
 
     public int determinarVencedor() {
-        int vencedor = -1;
+       //int vencedor = -1;
+        int empate = 0;
 
         //implementar 
         //vertical
@@ -294,7 +295,8 @@ public class EstadoJogo {
                 && casas[3][4] == casas[2][5] && casas[2][5] != EstadoJogo.CASA_VAZIA) {
             return casas[5][2];
         }
-        return vencedor;
+        
+        return empate;
     }
 
 }

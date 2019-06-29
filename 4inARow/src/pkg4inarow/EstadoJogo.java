@@ -61,12 +61,169 @@ public class EstadoJogo {
         int vencedor = -1;
 
         //implementar 
-        //diagonal
+        //vertical
+        if (casas[5][0] == casas[4][0] && casas[4][0] == casas[3][0]
+                && casas[3][0] == casas[2][0] && casas[2][0] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][0];
+        }
+        if (casas[4][0] == casas[3][0] && casas[3][0] == casas[2][0]
+                && casas[2][0] == casas[1][0] && casas[1][0] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][0];
+        }
+        if (casas[3][0] == casas[2][0] && casas[2][0] == casas[1][0]
+                && casas[1][0] == casas[0][0] && casas[0][0] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][0];
+        }
+
+        if (casas[5][1] == casas[4][1] && casas[4][1] == casas[3][1]
+                && casas[3][1] == casas[2][1] && casas[2][1] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][1];
+        }
+        if (casas[4][1] == casas[3][1] && casas[3][1] == casas[2][1]
+                && casas[2][1] == casas[1][1] && casas[1][1] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][1];
+        }
+        if (casas[3][1] == casas[2][1] && casas[2][1] == casas[1][1]
+                && casas[1][1] == casas[0][1] && casas[0][1] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][1];
+        }
+
+        if (casas[5][2] == casas[4][2] && casas[4][2] == casas[3][2]
+                && casas[3][2] == casas[2][2] && casas[2][2] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][2];
+        }
+        if (casas[4][2] == casas[3][2] && casas[3][2] == casas[2][2]
+                && casas[2][2] == casas[1][2] && casas[1][2] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][2];
+        }
+        if (casas[3][2] == casas[2][2] && casas[2][2] == casas[1][2]
+                && casas[1][2] == casas[0][2] && casas[0][2] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][2];
+        }
+
+        if (casas[5][3] == casas[4][3] && casas[4][3] == casas[3][3]
+                && casas[3][3] == casas[2][3] && casas[2][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][3];
+        }
+        if (casas[4][3] == casas[3][3] && casas[3][3] == casas[2][3]
+                && casas[2][3] == casas[1][3] && casas[1][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][3];
+        }
+        if (casas[3][3] == casas[2][3] && casas[2][3] == casas[1][3]
+                && casas[1][3] == casas[0][3] && casas[0][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][3];
+        }
+
+        if (casas[5][4] == casas[4][4] && casas[4][4] == casas[3][4]
+                && casas[3][4] == casas[2][4] && casas[2][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][4];
+        }
+        if (casas[4][4] == casas[3][4] && casas[3][4] == casas[2][4]
+                && casas[2][4] == casas[1][4] && casas[1][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][4];
+        }
+        if (casas[3][4] == casas[2][4] && casas[2][4] == casas[1][4]
+                && casas[1][4] == casas[0][4] && casas[0][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][4];
+        }
+
+        if (casas[5][5] == casas[4][5] && casas[4][5] == casas[3][5]
+                && casas[3][5] == casas[2][5] && casas[2][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][5];
+        }
+        if (casas[4][5] == casas[3][5] && casas[3][5] == casas[2][5]
+                && casas[2][5] == casas[1][5] && casas[1][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][5];
+        }
+        if (casas[3][5] == casas[2][5] && casas[2][5] == casas[1][5]
+                && casas[1][5] == casas[0][5] && casas[0][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][5];
+        }
+
+        //horizontal
+        if (casas[5][0] == casas[5][1] && casas[5][1] == casas[5][2]
+                && casas[5][2] == casas[5][3] && casas[5][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][0];
+        }
+        if (casas[5][1] == casas[5][2] && casas[5][2] == casas[5][3]
+                && casas[5][3] == casas[5][4] && casas[5][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][1];
+        }
+        if (casas[5][2] == casas[5][3] && casas[5][3] == casas[5][4]
+                && casas[5][4] == casas[5][5] && casas[5][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[5][2];
+        }
+
+        if (casas[4][0] == casas[4][1] && casas[4][1] == casas[4][2]
+                && casas[4][2] == casas[4][3] && casas[4][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][0];
+        }
+        if (casas[4][1] == casas[4][2] && casas[4][2] == casas[4][3]
+                && casas[4][3] == casas[4][4] && casas[4][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][1];
+        }
+        if (casas[4][2] == casas[4][3] && casas[4][3] == casas[4][4]
+                && casas[4][4] == casas[4][5] && casas[4][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[4][2];
+        }
+
+        if (casas[3][0] == casas[3][1] && casas[3][1] == casas[3][2]
+                && casas[3][2] == casas[3][3] && casas[3][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][0];
+        }
+        if (casas[3][1] == casas[3][2] && casas[3][2] == casas[3][3]
+                && casas[3][3] == casas[3][4] && casas[3][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][1];
+        }
+        if (casas[3][2] == casas[3][3] && casas[3][3] == casas[3][4]
+                && casas[3][4] == casas[3][5] && casas[3][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][2];
+        }
+
+        if (casas[2][0] == casas[2][1] && casas[2][1] == casas[2][2]
+                && casas[2][2] == casas[2][3] && casas[2][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[2][0];
+        }
+        if (casas[2][1] == casas[2][2] && casas[2][2] == casas[2][3]
+                && casas[2][3] == casas[2][4] && casas[2][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[2][1];
+        }
+        if (casas[2][2] == casas[2][3] && casas[2][3] == casas[2][4]
+                && casas[2][4] == casas[2][5] && casas[2][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[2][2];
+        }
+
+        if (casas[1][0] == casas[1][1] && casas[1][1] == casas[1][2]
+                && casas[1][2] == casas[1][3] && casas[1][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[1][0];
+        }
+        if (casas[1][1] == casas[1][2] && casas[1][2] == casas[1][3]
+                && casas[1][3] == casas[1][4] && casas[1][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[1][1];
+        }
+        if (casas[1][2] == casas[1][3] && casas[1][3] == casas[1][4]
+                && casas[1][4] == casas[1][5] && casas[1][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[1][2];
+        }
+
+        if (casas[0][0] == casas[0][1] && casas[0][1] == casas[0][2]
+                && casas[0][2] == casas[0][3] && casas[0][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[0][0];
+        }
+        if (casas[0][1] == casas[0][2] && casas[0][2] == casas[0][3]
+                && casas[0][3] == casas[0][4] && casas[0][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[0][1];
+        }
+        if (casas[0][2] == casas[0][3] && casas[0][3] == casas[0][4]
+                && casas[0][4] == casas[0][5] && casas[0][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[0][2];
+        }
+
+        //diagonal principal
         if (casas[2][0] == casas[3][1] && casas[3][1] == casas[4][2]
                 && casas[4][2] == casas[5][3] && casas[5][3] != EstadoJogo.CASA_VAZIA) {
             return casas[2][0];
         }
-
         if (casas[1][0] == casas[2][1] && casas[2][1] == casas[3][2]
                 && casas[3][2] == casas[4][3] && casas[4][3] != EstadoJogo.CASA_VAZIA) {
             return casas[1][0];
@@ -75,7 +232,6 @@ public class EstadoJogo {
                 && casas[4][3] == casas[5][4] && casas[5][4] != EstadoJogo.CASA_VAZIA) {
             return casas[2][1];
         }
-
         if (casas[0][0] == casas[1][1] && casas[1][1] == casas[2][2]
                 && casas[2][2] == casas[3][3] && casas[3][3] != EstadoJogo.CASA_VAZIA) {
             return casas[0][0];
@@ -88,7 +244,6 @@ public class EstadoJogo {
                 && casas[4][4] == casas[5][5] && casas[5][5] != EstadoJogo.CASA_VAZIA) {
             return casas[2][2];
         }
-
         if (casas[0][1] == casas[1][2] && casas[1][2] == casas[2][3]
                 && casas[2][3] == casas[3][4] && casas[3][4] != EstadoJogo.CASA_VAZIA) {
             return casas[2][1];
@@ -102,9 +257,7 @@ public class EstadoJogo {
             return casas[2][1];
         }
 
-        
-        
-        
+        //diagonal secundária
         if (casas[3][0] == casas[2][1] && casas[2][1] == casas[1][2]
                 && casas[1][2] == casas[0][3] && casas[0][3] != EstadoJogo.CASA_VAZIA) {
             return casas[3][0];
@@ -113,31 +266,31 @@ public class EstadoJogo {
                 && casas[2][2] == casas[1][3] && casas[1][3] != EstadoJogo.CASA_VAZIA) {
             return casas[4][0];
         }
-        if(casas[3][1] == casas[2][2] && casas[2][2] == casas[1][3]
+        if (casas[3][1] == casas[2][2] && casas[2][2] == casas[1][3]
                 && casas[1][3] == casas[0][4] && casas[0][4] != EstadoJogo.CASA_VAZIA) {
             return casas[3][1];
         }
-        if(casas[5][0] == casas[4][1] && casas[4][1] == casas[3][2]
+        if (casas[5][0] == casas[4][1] && casas[4][1] == casas[3][2]
                 && casas[3][2] == casas[2][3] && casas[2][3] != EstadoJogo.CASA_VAZIA) {
             return casas[5][0];
         }
-        if(casas[4][1] == casas[3][2] && casas[3][2] == casas[2][3]
+        if (casas[4][1] == casas[3][2] && casas[3][2] == casas[2][3]
                 && casas[2][3] == casas[1][4] && casas[1][4] != EstadoJogo.CASA_VAZIA) {
             return casas[4][1];
         }
-        if(casas[3][2] == casas[2][3] && casas[2][3] == casas[1][4]
+        if (casas[3][2] == casas[2][3] && casas[2][3] == casas[1][4]
                 && casas[1][4] == casas[0][5] && casas[0][5] != EstadoJogo.CASA_VAZIA) {
             return casas[3][2];
         }
-        if(casas[5][1] == casas[4][2] && casas[4][2] == casas[3][3]
+        if (casas[5][1] == casas[4][2] && casas[4][2] == casas[3][3]
                 && casas[3][3] == casas[2][4] && casas[2][4] != EstadoJogo.CASA_VAZIA) {
             return casas[5][1];
         }
-        if(casas[4][2] == casas[3][3] && casas[3][3] == casas[2][4]
+        if (casas[4][2] == casas[3][3] && casas[3][3] == casas[2][4]
                 && casas[2][4] == casas[1][5] && casas[1][5] != EstadoJogo.CASA_VAZIA) {
             return casas[4][2];
         }
-        if(casas[5][2] == casas[4][3] && casas[4][3] == casas[3][4]
+        if (casas[5][2] == casas[4][3] && casas[4][3] == casas[3][4]
                 && casas[3][4] == casas[2][5] && casas[2][5] != EstadoJogo.CASA_VAZIA) {
             return casas[5][2];
         }

@@ -5,6 +5,9 @@
  */
 package pkg4inarow;
 
+import java.awt.Color;
+import javax.swing.JButton;
+
 /**
  *
  * @author pedro
@@ -14,11 +17,48 @@ public class View extends javax.swing.JFrame {
     /**
      * Creates new form View
      */
+    public int matrizDeJogadas[][] = new int[6][6];
+    private JButton matrizDeBotoes[][] = new JButton[6][6];  
+    
     public View() {
-        initComponents();
+        initComponents(); 
+        matrizDeBotoes[0][0] = btn00;
+        matrizDeBotoes[0][1] = btn01;
+        matrizDeBotoes[0][2] = btn02;
+        matrizDeBotoes[0][3] = btn03;
+        matrizDeBotoes[0][4] = btn04;
+        matrizDeBotoes[0][5] = btn05;
+        matrizDeBotoes[1][0] = btn00;
+        matrizDeBotoes[1][1] = btn11;
+        matrizDeBotoes[1][2] = btn12;
+        matrizDeBotoes[1][3] = btn13;
+        matrizDeBotoes[1][4] = btn14;
+        matrizDeBotoes[1][5] = btn15;
+        matrizDeBotoes[2][0] = btn20;
+        matrizDeBotoes[2][1] = btn21;
+        matrizDeBotoes[2][2] = btn22;
+        matrizDeBotoes[2][3] = btn23;
+        matrizDeBotoes[2][4] = btn24;
+        matrizDeBotoes[2][5] = btn25;
+        matrizDeBotoes[3][0] = btn30;
+        matrizDeBotoes[3][1] = btn31;
+        matrizDeBotoes[3][2] = btn32;
+        matrizDeBotoes[3][3] = btn33;
+        matrizDeBotoes[3][4] = btn34;
+        matrizDeBotoes[3][5] = btn35;
+        matrizDeBotoes[4][0] = btn40;
+        matrizDeBotoes[4][1] = btn41;
+        matrizDeBotoes[4][2] = btn42;
+        matrizDeBotoes[4][3] = btn43;
+        matrizDeBotoes[4][4] = btn44;
+        matrizDeBotoes[4][5] = btn45;
+        matrizDeBotoes[5][0] = btn50;
+        matrizDeBotoes[5][1] = btn51;
+        matrizDeBotoes[5][2] = btn52;
+        matrizDeBotoes[5][3] = btn53;
+        matrizDeBotoes[5][4] = btn54;
+        matrizDeBotoes[5][5] = btn55;
     }
-
-    int jogadas[][];
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -74,22 +114,48 @@ public class View extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnColunaA.setText("jButton1");
+        btnColunaA.setText("Coluna A");
+        btnColunaA.setActionCommand("Coluna A");
         btnColunaA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnColunaAActionPerformed(evt);
             }
         });
 
-        btnColunaB.setText("jButton2");
+        btnColunaB.setText("Coluna B");
+        btnColunaB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColunaBActionPerformed(evt);
+            }
+        });
 
-        btnColunaC.setText("jButton3");
+        btnColunaC.setText("Coluna C");
+        btnColunaC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColunaCActionPerformed(evt);
+            }
+        });
 
-        btnColunaD.setText("jButton4");
+        btnColunaD.setText("Coluna D");
+        btnColunaD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColunaDActionPerformed(evt);
+            }
+        });
 
-        btnColunaE.setText("jButton5");
+        btnColunaE.setText("Coluna E");
+        btnColunaE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColunaEActionPerformed(evt);
+            }
+        });
 
-        btnColunaF.setText("jButton6");
+        btnColunaF.setText("Coluna F");
+        btnColunaF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnColunaFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,18 +165,6 @@ public class View extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnColunaA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnColunaB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnColunaC, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnColunaD, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnColunaE, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnColunaF, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn50, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
@@ -158,9 +212,20 @@ public class View extends javax.swing.JFrame {
                             .addComponent(btn25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(btn55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnColunaA, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnColunaB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnColunaC, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnColunaD, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnColunaE, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnColunaF, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +288,7 @@ public class View extends javax.swing.JFrame {
                     .addComponent(btnColunaC)
                     .addComponent(btnColunaB)
                     .addComponent(btnColunaA))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,15 +299,77 @@ public class View extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setView(int[][] matriz){
+        matrizDeJogadas = matriz;
+        for( int i = 5; i>=0; i--){
+            for(int j =5; j>=0; i--){
+                if(matrizDeJogadas[i][0] == -1){
+                    matrizDeBotoes[i][j].setBackground(Color.yellow);
+                }else if(matrizDeJogadas[i][0] == 1){
+                    matrizDeBotoes[i][j].setBackground(Color.green);
+                }
+            }
+        }
+    }
     private void btnColunaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaAActionPerformed
-        // TODO add your handling code here:
+        for( int i = 5; i>=0; i--){
+            if(matrizDeJogadas[i][0] == 2){
+                matrizDeBotoes[i][0].setBackground(Color.yellow);
+                matrizDeJogadas[i][0] = -1;
+            }
+        }
     }//GEN-LAST:event_btnColunaAActionPerformed
+
+    private void btnColunaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaBActionPerformed
+        for( int i = 5; i>=0; i--){
+            if(matrizDeJogadas[i][1] == 2){
+                matrizDeBotoes[i][1].setBackground(Color.yellow);
+                matrizDeJogadas[i][1] = -1;
+            }
+        }
+    }//GEN-LAST:event_btnColunaBActionPerformed
+
+    private void btnColunaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaCActionPerformed
+        for( int i = 5; i>=0; i--){
+            if(matrizDeJogadas[i][2] == 2){
+                matrizDeBotoes[i][2].setBackground(Color.yellow);
+                matrizDeJogadas[i][2] = -1;
+            }
+        }
+    }//GEN-LAST:event_btnColunaCActionPerformed
+
+    private void btnColunaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaDActionPerformed
+        for( int i = 5; i>=0; i--){
+            if(matrizDeJogadas[i][3] == 2){
+                matrizDeBotoes[i][3].setBackground(Color.yellow);
+                matrizDeJogadas[i][3] = -1;
+            }
+        }
+    }//GEN-LAST:event_btnColunaDActionPerformed
+
+    private void btnColunaEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaEActionPerformed
+        for( int i = 5; i>=0; i--){
+            if(matrizDeJogadas[i][4] == 2){
+                matrizDeBotoes[i][4].setBackground(Color.yellow);
+                matrizDeJogadas[i][4] = -1;
+            }
+        }
+    }//GEN-LAST:event_btnColunaEActionPerformed
+
+    private void btnColunaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaFActionPerformed
+        for( int i = 5; i>=0; i--){
+            if(matrizDeJogadas[i][5] == 2){
+                matrizDeBotoes[i][5].setBackground(Color.yellow);
+                matrizDeJogadas[i][5] = -1;
+            }
+        }
+    }//GEN-LAST:event_btnColunaFActionPerformed
 
     /**
      * @param args the command line arguments

@@ -22,7 +22,7 @@ public class EstadoJogo {
         {2, 2, 2, 2, 2, 2}, 
         {2, 2, 2, 2, 2, 2}, 
     };
-    
+    public static final int CASA_VAZIA = 2;
     private int minimax = 0;
     private int acao;
     private int melhorAcao;
@@ -67,7 +67,53 @@ public class EstadoJogo {
         
         //implementar 
         
+        //diagonal
+        if(casas[2][0] == casas[3][1] && casas[3][1] == casas[4][2]
+                && casas[4][2] == casas[5][3] && casas[5][3]  != EstadoJogo.CASA_VAZIA){
+            return casas[2][0];
+        }
         
+        if(casas[1][0] == casas[2][1] && casas[2][1] == casas[3][2]
+                && casas[3][2] == casas[4][3] && casas[4][3]  != EstadoJogo.CASA_VAZIA){
+            return casas[1][0];
+        }
+        if(casas[2][1] == casas[3][2] && casas[3][2] == casas[4][3]
+                && casas[4][3] == casas[5][4] && casas[5][4] != EstadoJogo.CASA_VAZIA){
+            return casas[2][1];
+        }
+        
+        if(casas[0][0] == casas[1][1] && casas[1][1] == casas[2][2] 
+                && casas[2][2] == casas[3][3] && casas[3][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[0][0];
+        }
+        if(casas[1][1] == casas[2][2] && casas[2][2] == casas[3][3] 
+                && casas[3][3] == casas[4][4] && casas[4][4] != EstadoJogo.CASA_VAZIA) {
+            return casas[1][1];
+        }
+        if(casas[2][2] == casas[3][3] && casas[3][3] == casas[4][4]
+                && casas[4][4] == casas[5][5] && casas[5][5] != EstadoJogo.CASA_VAZIA) {
+            return casas[2][2];
+        }
+        
+        if(casas[0][1] == casas[1][2] && casas[1][2] == casas[2][3]
+                && casas[2][3] == casas[3][4] && casas[3][4] != EstadoJogo.CASA_VAZIA){
+            return casas[2][1];
+        }
+        if(casas[1][2] == casas[2][3] && casas[2][3] == casas[3][4]
+                && casas[3][4] == casas[4][5] && casas[4][5] != EstadoJogo.CASA_VAZIA){
+            return casas[2][1];
+        }
+        if(casas[0][2] == casas[1][3] && casas[1][3] == casas[2][4]
+                && casas[2][4] == casas[3][5] && casas[3][5] != EstadoJogo.CASA_VAZIA){
+            return casas[2][1];
+        }
+        
+                
+        
+        if(casas[3][0] == casas[2][1] && casas[2][1] == casas[1][2]
+                && casas[1][2] == casas[0][3] && casas[0][3] != EstadoJogo.CASA_VAZIA) {
+            return casas[3][0];
+        }
         return vencedor;
     }
     

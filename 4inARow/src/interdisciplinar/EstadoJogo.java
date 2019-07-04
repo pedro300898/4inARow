@@ -25,6 +25,7 @@ public class EstadoJogo {
     private int minimax = 0;
     private int acao;
     private int melhorAcao;
+    private int empate = 36;
     
     public void imprimeMatriz() {
         for (int i = 0; i < casas.length; i++) {
@@ -180,7 +181,10 @@ public class EstadoJogo {
         }
 
         //diagonal principal adicionar as diagonais que faltam
-        
+        if (casas[3][0] == casas[4][1] && casas[4][1] == casas[5][2]
+                && casas[5][2]  != 2) {
+            return casas[3][0];
+        }
         if (casas[2][0] == casas[3][1] && casas[3][1] == casas[4][2]
                 && casas[4][2]  != 2) {
             return casas[2][0];
@@ -192,6 +196,14 @@ public class EstadoJogo {
         if (casas[2][1] == casas[3][2] && casas[3][2] == casas[4][3]
                 && casas[4][3] != 2) {
             return casas[2][1];
+        }
+        if (casas[3][2] == casas[4][3] && casas[4][3] == casas[5][4]
+                && casas[5][4] != 2) {
+            return casas[3][2];
+        }
+        if (casas[3][1] == casas[4][2] && casas[4][2] == casas[5][3]
+                && casas[5][3] != 2) {
+            return casas[3][1];
         }
         if (casas[0][0] == casas[1][1] && casas[1][1] == casas[2][2]
                 && casas[2][2] != 2) {
@@ -205,6 +217,10 @@ public class EstadoJogo {
                 && casas[4][4] != 2) {
             return casas[2][2];
         }
+        if (casas[3][3] == casas[4][4] && casas[4][4] == casas[5][5] 
+                && casas[5][5]  != 2) {
+            return casas[3][3];
+        }
         if (casas[0][1] == casas[1][2] && casas[1][2] == casas[2][3]
                 && casas[2][3] != 2) {
             return casas[2][1];
@@ -213,15 +229,36 @@ public class EstadoJogo {
                 && casas[3][4] != 2) {
             return casas[2][1];
         }
+        if(casas[2][3] == casas[3][4] && casas[3][4] == casas[4][5]
+                && casas[4][5] != 2){
+            return casas[2][3];
+        }
         if (casas[0][2] == casas[1][3] && casas[1][3] == casas[2][4]
                 && casas[2][4] != 2) {
             return casas[2][1];
         }
+        if (casas[1][3] == casas[2][4] && casas[2][4] == casas[3][5]
+                && casas[3][5] != 2) {
+            return casas[1][3];
+        }
+        if (casas[0][3] == casas[1][4] && casas[1][4] == casas[2][5]
+                && casas[2][5] != 2) {
+            return casas[0][3];
+        }
+        
 
         //diagonal secundária adicionar as diagonais que faltam
+        if (casas[2][0] == casas[1][1] && casas[1][1] == casas[0][2]
+                && casas[0][2] != 2) {
+            return casas[2][0];
+        }
         if (casas[3][0] == casas[2][1] && casas[2][1] == casas[1][2]
                 && casas[1][2] != 2) {
             return casas[3][0];
+        }
+        if (casas[2][1] == casas[1][2] && casas[1][2] == casas[0][3]
+                && casas[0][3] != 2) {
+            return casas[2][1];
         }
         if (casas[4][0] == casas[3][1] && casas[3][1] == casas[2][2]
                 && casas[2][2] != 2) {
@@ -230,6 +267,10 @@ public class EstadoJogo {
         if (casas[3][1] == casas[2][2] && casas[2][2] == casas[1][3]
                 && casas[1][3] != 2) {
             return casas[3][1];
+        }
+        if (casas[2][2] == casas[1][3] && casas[1][3] == casas[0][4]
+                && casas[0][4] != 2) {
+            return casas[4][2];
         }
         if (casas[5][0] == casas[4][1] && casas[4][1] == casas[3][2]
                 && casas[3][2] != 2) {
@@ -243,6 +284,10 @@ public class EstadoJogo {
                 && casas[1][4] != 2) {
             return casas[3][2];
         }
+        if (casas[2][3] == casas[1][4] && casas[1][4] == casas[0][5]
+                && casas[0][5] != 2) {
+            return casas[2][3];
+        }
         if (casas[5][1] == casas[4][2] && casas[4][2] == casas[3][3]
                 && casas[3][3] != 2) {
             return casas[5][1];
@@ -251,13 +296,27 @@ public class EstadoJogo {
                 && casas[2][4] != 2) {
             return casas[4][2];
         }
+        if (casas[3][3] == casas[2][4] && casas[2][4] == casas[1][5]
+                && casas[1][5] != 2) {
+            return casas[3][3];
+        }
         if (casas[5][2] == casas[4][3] && casas[4][3] == casas[3][4]
                 && casas[3][4] != 2) {
             return casas[5][2];
         } 
-        
-        
-        return vencedor;
+        if (casas[4][3] == casas[3][4] && casas[3][4] == casas[2][5]
+                && casas[2][5] != 2) {
+            return casas[4][3];
+        }
+        if (casas[5][3] == casas[4][4] && casas[4][4] == casas[3][5]
+                && casas[3][5] != 2) {
+            return casas[5][3];
+        }
+        empate--;
+        if(empate == 0){
+            return empate;
+        }    
+        return -2;
     }
 
     /**

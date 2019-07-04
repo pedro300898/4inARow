@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg4inarow;
+package interdisciplinar;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -115,7 +115,6 @@ public class View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnColunaA.setText("Coluna A");
-        btnColunaA.setActionCommand("Coluna A");
         btnColunaA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnColunaAActionPerformed(evt);

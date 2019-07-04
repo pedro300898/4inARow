@@ -17,11 +17,12 @@ public class View extends javax.swing.JFrame {
     /**
      * Creates new form View
      */
-    public int matrizDeJogadas[][] = new int[6][6];
-    private JButton matrizDeBotoes[][] = new JButton[6][6];  
+    private static int[][] matrizDeJogadas = new int[6][6];
+    private static JButton matrizDeBotoes[][];
     
     public View() {
-        initComponents(); 
+        initComponents();
+        matrizDeBotoes  = new JButton[6][6];  
         matrizDeBotoes[0][0] = btn00;
         matrizDeBotoes[0][1] = btn01;
         matrizDeBotoes[0][2] = btn02;
@@ -58,6 +59,13 @@ public class View extends javax.swing.JFrame {
         matrizDeBotoes[5][3] = btn53;
         matrizDeBotoes[5][4] = btn54;
         matrizDeBotoes[5][5] = btn55;
+        
+        
+        for( int i = 0; i<6; i++){
+            for(int j =0; j<6; j++){
+                matrizDeJogadas[i][j] = 2;
+            }
+        }    
     }
     
     @SuppressWarnings("unchecked")
@@ -304,13 +312,13 @@ public class View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setView(int[][] matriz){
+    public static void setView(int[][] matriz){
         matrizDeJogadas = matriz;
-        for( int i = 5; i>=0; i--){
-            for(int j =5; j>=0; i--){
-                if(matrizDeJogadas[i][0] == -1){
+        for( int i = 0; i>=0; i--){
+            for(int j =5; j>=0; j--){
+                if(matrizDeJogadas[i][j] == -1){
                     matrizDeBotoes[i][j].setBackground(Color.yellow);
-                }else if(matrizDeJogadas[i][0] == 1){
+                }else if(matrizDeJogadas[i][j] == 1){
                     matrizDeBotoes[i][j].setBackground(Color.green);
                 }
             }
@@ -320,7 +328,8 @@ public class View extends javax.swing.JFrame {
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][0] == 2){
                 matrizDeBotoes[i][0].setBackground(Color.yellow);
-                matrizDeJogadas[i][0] = -1;
+                Interdisciplinar.fazJogada(0);
+                break;
             }
         }
     }//GEN-LAST:event_btnColunaAActionPerformed
@@ -329,7 +338,8 @@ public class View extends javax.swing.JFrame {
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][1] == 2){
                 matrizDeBotoes[i][1].setBackground(Color.yellow);
-                matrizDeJogadas[i][1] = -1;
+                Interdisciplinar.fazJogada(1);
+                break;
             }
         }
     }//GEN-LAST:event_btnColunaBActionPerformed
@@ -338,7 +348,8 @@ public class View extends javax.swing.JFrame {
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][2] == 2){
                 matrizDeBotoes[i][2].setBackground(Color.yellow);
-                matrizDeJogadas[i][2] = -1;
+                Interdisciplinar.fazJogada(2);
+                break;
             }
         }
     }//GEN-LAST:event_btnColunaCActionPerformed
@@ -347,16 +358,21 @@ public class View extends javax.swing.JFrame {
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][3] == 2){
                 matrizDeBotoes[i][3].setBackground(Color.yellow);
-                matrizDeJogadas[i][3] = -1;
+                Interdisciplinar.fazJogada(3);
+                break;
             }
         }
     }//GEN-LAST:event_btnColunaDActionPerformed
 
     private void btnColunaEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaEActionPerformed
+        System.out.println("E");
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][4] == 2){
+                System.out.println("if E");
                 matrizDeBotoes[i][4].setBackground(Color.yellow);
-                matrizDeJogadas[i][4] = -1;
+                System.out.println("deveria ter pintado");
+                Interdisciplinar.fazJogada(4);
+                break;
             }
         }
     }//GEN-LAST:event_btnColunaEActionPerformed
@@ -366,6 +382,8 @@ public class View extends javax.swing.JFrame {
             if(matrizDeJogadas[i][5] == 2){
                 matrizDeBotoes[i][5].setBackground(Color.yellow);
                 matrizDeJogadas[i][5] = -1;
+                Interdisciplinar.fazJogada(5);
+                break;
             }
         }
     }//GEN-LAST:event_btnColunaFActionPerformed
@@ -401,8 +419,11 @@ public class View extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new View().setVisible(true);
+                Interdisciplinar.inicializarEstadoJogo();
+                Interdisciplinar.fazJogada(0);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

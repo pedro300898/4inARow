@@ -28,12 +28,7 @@ public class EstadoJogo {
     private int empate = 36;
     
     public void imprimeMatriz() {
-        for (int i = 0; i < casas.length; i++) {
-            for (int j = 0; j < casas[i].length; j++) {
-                System.out.print(casas[i][j]+" ");
-            }
-            System.out.println("");
-        }
+        View.setView(casas);
     }
     
     public boolean realizarJogada(int jogador, int posicao) {
@@ -69,118 +64,52 @@ public class EstadoJogo {
     }
     
     public int determinarVencedor() {
-        int vencedor = 0;
-
-        //implementar 
-        
         int jogador;
         int contador = 0;
         // Verifica ganhador na horizontal e vertical.
-        for(int i = 5; i > 2; --i) {
-            jogador = casas[i][5];
-            contador = 1;
-            for(int j = 4; j > 2; --j) {
-                if(jogador != casas[i][j]) {
-                    break;
+        for(int i = 5; i >=0; --i) {
+            for(int j = 5; j >=0 ; --j){
+                contador = 1;
+                System.out.println("Fixo i:"+i+" j:"+j);
+                jogador = casas[i][j];
+                for(int k = 1; k < 3 ; k++){
+                    int h = j-k;
+                    if(h>=0){
+                        System.out.println("visitou horizontal i:"+i+" J:"+h);
+                    if(jogador != casas[i][(j-k)]) {
+                        System.out.println("Break 1");
+                        break;
+                    }
+                    contador++;
+                    }
                 }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            }
-            jogador = casas[5][i];
-            contador = 1;
-            for(int j = 4; j > 2; --j) {
-                if(jogador != casas[j][i]) {
-                    break;
+                System.out.println("cont:"+contador);
+                if(contador == 3 && jogador != 2) {
+                    System.out.println("GG ez H");
+                    return jogador;
                 }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            }
-        }
-        for(int i = 4; i > 1; --i) {
-            jogador = casas[i][5];
-            contador = 1;
-            
-            jogador = casas[i][4];
-            contador = 1;
-            for(int j = 3; j > 1; --j) {
-                if(jogador != casas[i][j]) {
-                    break;
+                contador = 1;
+                System.out.println("Fixo i:"+i+" j:"+j);
+                for(int k = 1; k < 3 ; k++){
+                    int h = i-k;
+                    if(h>=0){
+                        System.out.println("visitou vertical i:"+h+" J:"+j);
+                    if(jogador != casas[(i-k)][j]) {
+                        System.out.println("Break 2");
+                        break;
+                    }
+                    contador++;
+                    }
                 }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            }
-            jogador = casas[4][i];
-            contador = 1;
-            for(int j = 3; j > 1; --j) {
-                if(jogador != casas[j][i]) {
-                    break;
+                System.out.println("cont:"+contador);
+                if(contador == 3 && jogador != 2) {
+                    System.out.println("GG ez V");
+                    return jogador;
                 }
-                contador++;
             }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            } 
-         }
-         for(int i = 3; i > 0; --i) {
-            jogador = casas[i][5];
-            contador = 1;
-            jogador = casas[i][3];
-            contador = 1;
-            for(int j = 2; j > 0; --j) {
-                if(jogador != casas[i][j]) {
-                    break;
-                }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            }
-            jogador = casas[3][i];
-            contador = 1;
-            for(int j = 2; j > 0; --j) {
-                if(jogador != casas[j][i]) {
-                    break;
-                }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            }
-        } 
-        for(int i = 2; i >= 0 ; --i) {
-            jogador = casas[i][5];
-            contador = 1;
-            jogador = casas[i][2];
-            contador = 1;
-            for(int j = 1; j >= 0 ; --j) {
-                if(jogador != casas[i][j]) {
-                    break;
-                }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            }
-            jogador = casas[2][i];
-            contador = 1;
-            for(int j = 1; j >=0; --j) {
-                if(jogador != casas[j][i]) {
-                    break;
-                }
-                contador++;
-            }
-            if(contador == 3 && jogador != 2) {
-                return jogador;
-            } 
         }
 
-        //diagonal principal adicionar as diagonais que faltam
+        //diagonal principal
         if (casas[3][0] == casas[4][1] && casas[4][1] == casas[5][2]
                 && casas[5][2]  != 2) {
             return casas[3][0];
@@ -246,8 +175,7 @@ public class EstadoJogo {
             return casas[0][3];
         }
         
-
-        //diagonal secundária adicionar as diagonais que faltam
+        //diagonal secundária
         if (casas[2][0] == casas[1][1] && casas[1][1] == casas[0][2]
                 && casas[0][2] != 2) {
             return casas[2][0];

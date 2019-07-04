@@ -16,16 +16,8 @@ public class Interdisciplinar {
     // Armazena qual é o jogador atual...
     private static int jogadorAtual, nivel;
     
-    public static void main(String[] args) {
-        // TODO code application logic here
-        nivel = 0;
-        
-        inicializarEstadoJogo();
-
-        fazJogada(0);
-    }
     
-    private static void fazJogada (int coluna) {
+    public static void fazJogada (int coluna) {
         //ao clicar no botao, chamar esse metodo
         if (jogadorAtual == 1) {
             if (!estado.realizarJogada(jogadorAtual, 0)) {
@@ -36,13 +28,12 @@ public class Interdisciplinar {
                 estado.realizarJogada(jogadorAtual, jogada);
                 jogadorAtual = 1;
                 estado.imprimeMatriz();
-                
             }
         }
         
     }
     
-    private static void inicializarEstadoJogo() {
+    public static void inicializarEstadoJogo() {
         estado = new EstadoJogo();
         jogadorAtual = 1; // Quem começa a jogar é humano
     }

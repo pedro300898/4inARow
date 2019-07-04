@@ -14,19 +14,20 @@ public class Interdisciplinar {
     // Mantém informações a respeito do estado atual do jogo.
     private static EstadoJogo estado;
     // Armazena qual é o jogador atual...
-    private static int jogadorAtual, nivel;
+    private static int jogadorAtual;
     
     
     public static void fazJogada (int coluna) {
+           System.out.println("Iniciou Jogada");
         //ao clicar no botao, chamar esse metodo
-        if (jogadorAtual == 1) {
-            if (!estado.realizarJogada(jogadorAtual, 0)) {
-                estado.imprimeMatriz();
-                jogadorAtual = -1;
-                Minimax minimax = new Minimax(estado.clonar());
-                int jogada = minimax.melhorJogada(nivel);
-                estado.realizarJogada(jogadorAtual, jogada);
+        if (jogadorAtual == -1) {
+            if (estado.realizarJogada(-1, coluna)) {
+                //estado.imprimeMatriz();
                 jogadorAtual = 1;
+                Minimax minimax = new Minimax(estado.clonar());
+                int jogada = minimax.melhorJogada();
+                estado.realizarJogada(1, jogada);
+                jogadorAtual = -1;
                 estado.imprimeMatriz();
             }
         }
@@ -35,6 +36,7 @@ public class Interdisciplinar {
     
     public static void inicializarEstadoJogo() {
         estado = new EstadoJogo();
-        jogadorAtual = 1; // Quem começa a jogar é humano
+        jogadorAtual = -1; // Quem começa a jogar é humano
+        System.out.println("Iniciou");
     }
 }

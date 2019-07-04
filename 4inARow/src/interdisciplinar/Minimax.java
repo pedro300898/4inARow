@@ -19,34 +19,34 @@ public class Minimax {
         this.estado = estado;
     }
     
-    public int melhorJogada(int nivel) {
-        return minimax(estado, nivel);
-    }
-    
-    private int minimax(EstadoJogo estado, int nivel) {
-        EstadoJogo melhorJogada = max(estado, nivel);
+    public int melhorJogada() {
+        EstadoJogo melhorJogada = max(estado,0);
         return melhorJogada.getMelhorAcao();
     }
     
     private EstadoJogo max(EstadoJogo estado, int nivel) {
-        nivel++;
-        System.out.println("valor nivel max "+nivel);
+        //System.out.println("valor nivel max "+nivel);
+        if(nivel == 6){
+            //System.out.println("oi");
+            estado.setMinimax(0);
+            return estado;
+        }
 
         int possivelVencedor = estado.determinarVencedor();
-        if(possivelVencedor != -2) {
+        if(possivelVencedor != 0) {//se alguem ganhou
             estado.setMinimax(possivelVencedor);
             return estado;
         }
         
-        ArrayList<EstadoJogo> novosEstados = estado.
-                getFilhos(-1);
+        ArrayList<EstadoJogo> novosEstados = estado.getFilhos(1);
         
         int max = Integer.MIN_VALUE;
         
         EstadoJogo melhor = null;
         
         for(EstadoJogo filho:novosEstados) {
-            EstadoJogo possivelMelhor = min(filho, nivel);
+            System.out.println(filho.getAcao());
+            EstadoJogo possivelMelhor = min(filho, nivel+1);
             if(possivelMelhor.getMinimax()> max) {
                 melhor = possivelMelhor;
                 max = possivelMelhor.getMinimax();
@@ -54,26 +54,28 @@ public class Minimax {
         }
         estado.setMelhorAcao(melhor.getAcao());
         estado.setMinimax(max);
-        return estado;        
+        return estado;
     }
     
     private EstadoJogo min(EstadoJogo estado, int nivel) {
-        nivel++;
-        System.out.println("valor nivel min "+nivel);
+        if(nivel == 6){
+            estado.setMinimax(0);
+            return estado;
+        }
+        //System.out.println("valor nivel min "+nivel);
         int possivelVencedor = estado.determinarVencedor();
-        if(possivelVencedor != -2) {
+        if(possivelVencedor != 0) {
             estado.setMinimax(possivelVencedor);
             return estado;
         }
         
-        ArrayList<EstadoJogo> novosEstados = estado.
-                getFilhos(1);
+        ArrayList<EstadoJogo> novosEstados = estado.getFilhos(-1);
         
         int min = Integer.MAX_VALUE;
         
         EstadoJogo melhor = null;
         for(EstadoJogo filho:novosEstados) {
-            EstadoJogo possivelMelhor = max(filho, nivel);
+            EstadoJogo possivelMelhor = max(filho, nivel+1);
             if(possivelMelhor.getMinimax() < min) {
                 melhor = possivelMelhor;
                 min = possivelMelhor.getMinimax();
@@ -81,7 +83,7 @@ public class Minimax {
         }
         estado.setMelhorAcao(melhor.getAcao());
         estado.setMinimax(min);
-        return estado;        
+        return estado;
     }
         
 }

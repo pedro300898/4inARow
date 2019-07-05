@@ -35,12 +35,12 @@ public int[][] casas = {
     private int minimax;
     
     public void imprimeMatriz() {
-        for(int i = 0; i < 6;i++){
-            for(int j =0; j< 6;j++){
-                System.out.print(" "+casas[i][j]);
-            }
-            System.out.println("");
-        }
+//        for(int i = 0; i < 6;i++){
+//            for(int j =0; j< 6;j++){
+//                System.out.print(" "+casas[i][j]);
+//            }
+//            System.out.println("");
+//        }
         View.setView(casas);
     }
     
@@ -96,7 +96,6 @@ public int[][] casas = {
                     }
                 }
                 if(contador == 4 && jogador != 0) {
-                    System.out.println("Ganhou Jogador: "+jogador);
                     return jogador;
                 }
                 contador = 1;
@@ -110,7 +109,6 @@ public int[][] casas = {
                     }
                 }
                 if(contador == 4 && jogador != 0) {
-                    System.out.println("Ganhou Jogador: "+jogador);
                     return jogador;
                 }
             }
@@ -134,6 +132,8 @@ public int[][] casas = {
                 }
             }
             
+            contador = 0;
+            ultimo = 0;
             for(int i = k, j = 0; i < 6 && j<6; i++, j++){
                 if(casas[i][j] == 0){
                     contador = 0;
@@ -149,6 +149,8 @@ public int[][] casas = {
                 }
             }
             
+            contador = 0;
+            ultimo = 0;
             for(int j = k, i = 0; i < 6 && j<6; i++, j++){
                 if(casas[i][j] == 0){
                     contador = 0;
@@ -164,6 +166,8 @@ public int[][] casas = {
                 }
             }
             
+            contador = 0;
+            ultimo = 0;
             for(int j = k, i = 5; i >= 0 && j<6; i--, j++){
                 if(casas[i][j] == 0){
                     contador = 0;
@@ -179,139 +183,6 @@ public int[][] casas = {
                 }
             }
         }
-
-        //diagonal principal
-//        if (casas[3][0] == casas[4][1] && casas[4][1] == casas[5][2]
-//                && casas[5][2]  != 2) {
-//                System.out.println("gg ez pinga");
-//            return casas[3][0];
-//        }
-//        if (casas[2][0] == casas[3][1] && casas[3][1] == casas[4][2]
-//                && casas[4][2]  != 2) { System.out.println("gg ez pinga");
-//            return casas[2][0];
-//        }
-//        if (casas[1][0] == casas[2][1] && casas[2][1] == casas[3][2]
-//                && casas[3][2] != 2) { System.out.println("gg ez pinga");
-//            return casas[1][0];
-//        }
-//        if (casas[2][1] == casas[3][2] && casas[3][2] == casas[4][3]
-//                && casas[4][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][1];
-//        }
-//        if (casas[3][2] == casas[4][3] && casas[4][3] == casas[5][4]
-//                && casas[5][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[3][2];
-//        }
-//        if (casas[3][1] == casas[4][2] && casas[4][2] == casas[5][3]
-//                && casas[5][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[3][1];
-//        }
-//        if (casas[0][0] == casas[1][1] && casas[1][1] == casas[2][2]
-//                && casas[2][2] != 2) {System.out.println("gg ez pinga");
-//            return casas[0][0];
-//        }
-//        if (casas[1][1] == casas[2][2] && casas[2][2] == casas[3][3]
-//                && casas[3][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[1][1];
-//        }
-//        if (casas[2][2] == casas[3][3] && casas[3][3] == casas[4][4]
-//                && casas[4][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][2];
-//        }
-//        if (casas[3][3] == casas[4][4] && casas[4][4] == casas[5][5] 
-//                && casas[5][5]  != 2) {System.out.println("gg ez pinga");
-//            return casas[3][3];
-//        }
-//        if (casas[0][1] == casas[1][2] && casas[1][2] == casas[2][3]
-//                && casas[2][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][1];
-//        }
-//        if (casas[1][2] == casas[2][3] && casas[2][3] == casas[3][4]
-//                && casas[3][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][1];
-//        }
-//        if(casas[2][3] == casas[3][4] && casas[3][4] == casas[4][5]
-//                && casas[4][5] != 2){System.out.println("gg ez pinga");
-//            return casas[2][3];
-//        }
-//        if (casas[0][2] == casas[1][3] && casas[1][3] == casas[2][4]
-//                && casas[2][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][1];
-//        }
-//        if (casas[1][3] == casas[2][4] && casas[2][4] == casas[3][5]
-//                && casas[3][5] != 2) {System.out.println("gg ez pinga");
-//            return casas[1][3];
-//        }
-//        if (casas[0][3] == casas[1][4] && casas[1][4] == casas[2][5]
-//                && casas[2][5] != 2) {System.out.println("gg ez pinga");
-//            return casas[0][3];
-//        }
-//        
-//        //diagonal secundária
-//        if (casas[2][0] == casas[1][1] && casas[1][1] == casas[0][2]
-//                && casas[0][2] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][0];
-//        }
-//        if (casas[3][0] == casas[2][1] && casas[2][1] == casas[1][2]
-//                && casas[1][2] != 2) {System.out.println("gg ez pinga");
-//            return casas[3][0];
-//        }
-//        if (casas[2][1] == casas[1][2] && casas[1][2] == casas[0][3]
-//                && casas[0][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][1];
-//        }
-//        if (casas[4][0] == casas[3][1] && casas[3][1] == casas[2][2]
-//                && casas[2][2] != 2) {System.out.println("gg ez pinga");
-//            return casas[4][0];
-//        }
-//        if (casas[3][1] == casas[2][2] && casas[2][2] == casas[1][3]
-//                && casas[1][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[3][1];
-//        }
-//        if (casas[2][2] == casas[1][3] && casas[1][3] == casas[0][4]
-//                && casas[0][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[4][2];
-//        }
-//        if (casas[5][0] == casas[4][1] && casas[4][1] == casas[3][2]
-//                && casas[3][2] != 2) {System.out.println("gg ez pinga");
-//            return casas[5][0];
-//        }
-//        if (casas[4][1] == casas[3][2] && casas[3][2] == casas[2][3]
-//                && casas[2][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[4][1];
-//        }
-//        if (casas[3][2] == casas[2][3] && casas[2][3] == casas[1][4]
-//                && casas[1][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[3][2];
-//        }
-//        if (casas[2][3] == casas[1][4] && casas[1][4] == casas[0][5]
-//                && casas[0][5] != 2) {System.out.println("gg ez pinga");
-//            return casas[2][3];
-//        }
-//        if (casas[5][1] == casas[4][2] && casas[4][2] == casas[3][3]
-//                && casas[3][3] != 2) {System.out.println("gg ez pinga");
-//            return casas[5][1];
-//        }
-//        if (casas[4][2] == casas[3][3] && casas[3][3] == casas[2][4]
-//                && casas[2][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[4][2];
-//        }
-//        if (casas[3][3] == casas[2][4] && casas[2][4] == casas[1][5]
-//                && casas[1][5] != 2) {System.out.println("gg ez pinga");
-//            return casas[3][3];
-//        }
-//        if (casas[5][2] == casas[4][3] && casas[4][3] == casas[3][4]
-//                && casas[3][4] != 2) {System.out.println("gg ez pinga");
-//            return casas[5][2];
-//        } 
-//        if (casas[4][3] == casas[3][4] && casas[3][4] == casas[2][5]
-//                && casas[2][5] != 2) {System.out.println("gg ez pinga");
-//            return casas[4][3];
-//        }
-//        if (casas[5][3] == casas[4][4] && casas[4][4] == casas[3][5]
-//                && casas[3][5] != 2) {System.out.println("gg ez pinga");
-//            return casas[5][3];
-//        }
         return 0;
     }
 

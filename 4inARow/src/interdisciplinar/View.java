@@ -7,6 +7,8 @@ package interdisciplinar;
 
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -311,7 +313,15 @@ public class View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+     public static void setViewAmarelo(){
+         JOptionPane.showMessageDialog(null, "Jogador Ganhou");
+     }
+     public static void setViewVerde(){
+         JOptionPane.showMessageDialog(null, "IA Ganhou");
+     }
+    
     public static void setView(int[][] matriz){
         matrizDeJogadas = matriz;
 //        for( int i = 0; i<6; i++){
@@ -323,16 +333,13 @@ public class View extends javax.swing.JFrame {
             for(int j =0; j<6; j++){
                 if(matrizDeJogadas[i][j] == 1){
                     matrizDeBotoes[i][j].setBackground(Color.green);
-                    System.out.println("IA "+i+ " "+j);
                 }else if(matrizDeJogadas[i][j] == -1){
                     matrizDeBotoes[i][j].setBackground(Color.yellow);
-                    System.out.println("player "+i+ " "+j);
                 }
             }
         }
     }
     private void btnColunaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaAActionPerformed
-        System.out.println("A");
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][0] == 0){
                 matrizDeBotoes[i][0].setBackground(Color.yellow);
@@ -343,7 +350,6 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_btnColunaAActionPerformed
 
     private void btnColunaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaBActionPerformed
-        System.out.println("B");
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][1] == 0){
                 matrizDeBotoes[i][1].setBackground(Color.yellow);
@@ -354,7 +360,6 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_btnColunaBActionPerformed
 
     private void btnColunaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaCActionPerformed
-        System.out.println("C");
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][2] == 0){
                 matrizDeBotoes[i][2].setBackground(Color.yellow);
@@ -365,8 +370,7 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_btnColunaCActionPerformed
 
     private void btnColunaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaDActionPerformed
-        System.out.println("D");
-        for( int i = 5; i>=0; i--){
+       for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][3] == 0){
                 matrizDeBotoes[i][3].setBackground(Color.yellow);
                 Interdisciplinar.fazJogada(3);
@@ -376,7 +380,6 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_btnColunaDActionPerformed
 
     private void btnColunaEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaEActionPerformed
-        System.out.println("E");
         for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][4] == 0){
                 matrizDeBotoes[i][4].setBackground(Color.yellow);
@@ -387,8 +390,7 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_btnColunaEActionPerformed
 
     private void btnColunaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColunaFActionPerformed
-        System.out.println("F");
-        for( int i = 5; i>=0; i--){
+       for( int i = 5; i>=0; i--){
             if(matrizDeJogadas[i][5] == 0){
                 matrizDeBotoes[i][5].setBackground(Color.yellow);
                 Interdisciplinar.fazJogada(5);
@@ -428,7 +430,6 @@ public class View extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new View().setVisible(true);
-                System.out.println("Inicia");
                 Interdisciplinar.inicializarEstadoJogo();
             }
         });

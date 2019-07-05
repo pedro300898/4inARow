@@ -18,7 +18,6 @@ public class Interdisciplinar {
     
     
     public static void fazJogada (int coluna) {
-           System.out.println("Iniciou Jogada");
         //ao clicar no botao, chamar esse metodo
         if (jogadorAtual == -1) {
             if (estado.realizarJogada(-1, coluna)) {
@@ -29,6 +28,11 @@ public class Interdisciplinar {
                 estado.realizarJogada(1, jogada);
                 jogadorAtual = -1;
                 estado.imprimeMatriz();
+                if(1==estado.determinarVencedor()){
+                    View.setViewVerde();
+                }else if(-1==estado.determinarVencedor()){
+                    View.setViewAmarelo();
+                }
             }
         }
         
@@ -37,6 +41,5 @@ public class Interdisciplinar {
     public static void inicializarEstadoJogo() {
         estado = new EstadoJogo();
         jogadorAtual = -1; // Quem começa a jogar é humano
-        System.out.println("Iniciou");
     }
 }

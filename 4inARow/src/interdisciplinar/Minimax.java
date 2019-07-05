@@ -25,9 +25,7 @@ public class Minimax {
     }
     
     private EstadoJogo max(EstadoJogo estado, int nivel) {
-        //System.out.println("valor nivel max "+nivel);
-        if(nivel == 6){
-            //System.out.println("oi");
+        if(nivel == 8){
             estado.setMinimax(0);
             return estado;
         }
@@ -42,23 +40,26 @@ public class Minimax {
         
         int max = Integer.MIN_VALUE;
         
-        EstadoJogo melhor = null;
+        ArrayList<EstadoJogo> melhores = new ArrayList();
         
         for(EstadoJogo filho:novosEstados) {
-            System.out.println(filho.getAcao());
+    //        System.out.println(filho.getAcao());
             EstadoJogo possivelMelhor = min(filho, nivel+1);
             if(possivelMelhor.getMinimax()> max) {
-                melhor = possivelMelhor;
+                melhores = new ArrayList();
+                melhores.add(possivelMelhor);
                 max = possivelMelhor.getMinimax();
+            }else if(possivelMelhor.getMinimax()==max){
+                melhores.add(possivelMelhor);
             }
         }
-        estado.setMelhorAcao(melhor.getAcao());
+        estado.setMelhorAcao(melhores.get((int)(Math.random()*melhores.size())).getAcao());
         estado.setMinimax(max);
         return estado;
     }
     
     private EstadoJogo min(EstadoJogo estado, int nivel) {
-        if(nivel == 6){
+        if(nivel == 8){
             estado.setMinimax(0);
             return estado;
         }
